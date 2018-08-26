@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Earned Value - Proyecto Final</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+</head>
+
+<nav class="navbar navbar-default" id="nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Proyecto Final</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li id="ries" class="active"><a data-toggle="tab" href="#paginaRiesgo">Riesgos</a></li>
+            <li id="imp"><a data-toggle="tab" href="#paginaImpacto">Impactos</a></li>
+            <li id="prob"><a data-toggle="tab" href="#paginaProb">Probabilidades</a></li>
+            <li id="niv"><a data-toggle="tab" href="#paginaNiv">Niveles</a></li>
+            <li id="pVal"><a data-toggle="tab" href="#paginaPlannedVal">Planned Value</a></li>
+            <li id="pVal"><a data-toggle="tab" href="#paginaEarnedVal">Earned Value</a></li>
+            <li id="pVal"><a data-toggle="tab" href="#paginaID">Indices de Desempeño</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="tab-content">
+
+    <div class="container tab-pane fade in active" id="paginaRiesgo">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info addBtn" data-toggle="tooltip" title="Agregar nuevo riesgo">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <table id="riesgos" class="display">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Impacto</th>
+                            <th>Probabilidad</th>
+                            <th>Nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Robo de efectivo</td>
+                            <td>Catastrofico</td>
+                            <td>Alto</td>
+                            <td><span class="label label-danger">Alto (4)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Perdida de efectivo</td>
+                            <td>Catastrofico</td>
+                            <td>Baja</td>
+                            <td><span class="label label-warning">Media (4)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mal clima</td>
+                            <td>Critico</td>
+                            <td>Baja</td>
+                            <td><span class="label label-success">Bajo (3)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Perdida de cheques</td>
+                            <td>Catastrofico</td>
+                            <td>Media</td>
+                            <td><span class="label label-warning">Media (8)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Perder el vuelo</td>
+                            <td>Critico</td>
+                            <td>Baja</td>
+                            <td><span class="label label-success">Bajo (3)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-pane fade" id="paginaImpacto">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <button type="button" data-toggle="modal" data-target="#myImpactModal" class="btn btn-info addBtn" data-toggle="tooltip"
+                    title="Agregar nuevo impacto">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <table id="impactos" class="display">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Insuficiente</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Marginal</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Critico</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Catastrofico</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-pane fade" id="paginaProb">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <button type="button" data-toggle="modal" data-target="#myProbModal" class="btn btn-info addBtn" data-toggle="tooltip" title="Agregar nueva probabilidad">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <table id="probabilidades" class="display">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bajo</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Medio</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Alto</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-pane fade" id="paginaNiv">
+        <!-- <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <button type="button" data-toggle="modal" data-target="#myNivModal" class="btn btn-info" data-toggle="tooltip" title="Agregar nuevo impacto">+</button>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <table id="niveles" class="display">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Umbral de nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bajo</td>
+                            <td>1-3</td>
+                        </tr>
+                        <tr>
+                            <td>Medio</td>
+                            <td>4-8</td>
+                        </tr>
+                        <tr>
+                            <td>Alto</td>
+                            <td>9 +</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-pane fade" id="paginaPlannedVal">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+
+                <form id='PVForm'>
+
+                    <div class="form-group">
+                        <label for="riesgo">% Completado: </label>
+                        <input type="number" class="form-control" id="perPlanned" placeholder="Porcentage planeado completado" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="riesgo">Costo (BAC): </label>
+                        <input type="number" class="form-control" id="costPlanned" placeholder="Costo de proyecto" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="planResult">Resultado: </label>
+                        <input type="number" class="form-control" id="planResult" placeholder="Resultado" disabled>
+                    </div>
+
+                    <button id='calcPlanValue' class="btn btn-primary">Calcular</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-pane fade" id="paginaEarnedVal">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+
+                <form id='EVForm'>
+
+                    <div class="form-group">
+                        <label for="riesgo">% Completado: </label>
+                        <input type="number" class="form-control" id="evPlanned" placeholder="Porcentage de trabajo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="riesgo">Costo (BAC): </label>
+                        <input type="number" class="form-control" id="evCost" placeholder="Costo de proyecto" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="evResult">Resultado: </label>
+                        <input type="number" class="form-control" id="evResult" placeholder="Resultado" disabled>
+                    </div>
+
+                    <button id='calcEarnValue' type="button" class="btn btn-primary">Calcular</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container tab-pane fade" id="paginaID">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+
+                <form id='IDForm'>
+
+                    <div class="form-group">
+                        <label for="ac">AC: </label>
+                        <input type="number" class="form-control" id="ac" placeholder="Costo actual" required>
+                        <br>
+                        <button id='saveAc' type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group">
+                        <label for="spi">SPI: </label>
+                        <input type="number" class="form-control" id="spi" placeholder="Indice de desempeño del cronograma" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpi">CPI: </label>
+                        <input type="number" class="form-control" id="cpi" placeholder="Indice de desempeño del costo" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sv">SV: </label>
+                        <input type="number" class="form-control" id="sv" placeholder="Variacion del cronograma" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cv">CV: </label>
+                        <input type="number" class="form-control" id="cv" placeholder="Variacion del costo" disabled>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Riesgo-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Agregar nuevo riesgo</h4>
+            </div>
+            <div class="modal-body">
+                <form id='riesgoForm'>
+                    <div class="form-group">
+                        <label for="riesgo">Riesgo:</label>
+                        <input type="text" class="form-control" id="riesgo" placeholder="Nombre del riesgo" oninvalid="this.setCustomValidity('Por favor ingrese un riesgo')"
+                            oninput="setCustomValidity('')" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="impacto">Impacto:</label>
+                        <select class="form-control" id="impacto">
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="probabilidad">Probabilidad:</label>
+                        <select class="form-control" id="probabilidad">
+                        </select>
+                    </div>
+
+                    <button id='addRiesgo' type='button' class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Impactos-->
+<div id="myImpactModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Agregar nuevo impacto</h4>
+            </div>
+            <div class="modal-body">
+                <form id='impactForm'>
+
+                    <div class="form-group">
+                        <label for="nImpacto">Impacto:</label>
+                        <input type="text" class="form-control" id="nImpacto" placeholder="Nombre del impacto" oninvalid="this.setCustomValidity('Por favor ingrese un impacto')"
+                            oninput="setCustomValidity('')" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="impValor">Valor:</label>
+                        <input type="text" class="form-control" id="impValor" placeholder="Valor del impacto" oninvalid="this.setCustomValidity('Por favor ingrese un valor')"
+                            oninput="setCustomValidity('')" required>
+                    </div>
+
+                    <button id='addImpacto' type='button' class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Probabilidad-->
+<div id="myProbModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Agregar nueva probabilidad</h4>
+            </div>
+            <div class="modal-body">
+                <form id='probForm'>
+
+                    <div class="form-group">
+                        <label for="nProb">Probabilidad:</label>
+                        <input type="text" class="form-control" id="nProb" placeholder="Nivel de la probabilidad" oninvalid="this.setCustomValidity('Por favor ingrese un valor')"
+                            oninput="setCustomValidity('')" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="impProb">Valor:</label>
+                        <input type="text" class="form-control" id="impProb" placeholder="Valor de la probabilidad" oninvalid="this.setCustomValidity('Por favor ingrese un valor')"
+                            oninput="setCustomValidity('')" required>
+                    </div>
+
+                    <button id='addProb' type='button' class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

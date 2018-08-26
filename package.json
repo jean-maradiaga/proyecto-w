@@ -1,0 +1,21 @@
+{
+  "name": "earned-value",
+  "version": "1.0.0",
+  "description": "Proyecto final para curso de Procesos de ingeniería de software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files '*.html, css/*.css, js/*.js'"
+  },
+  "keywords": [
+    "cenfotec",
+    "proyecto",
+    "final"
+  ],
+  "author": "Wendy V. Villegas Montero",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.24.6",
+    "http-server": "^0.11.1"
+  }
+}
